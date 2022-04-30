@@ -35,4 +35,14 @@ public class MyList <T extends Comparable<T>>{
         return maxNum;
     }
 
+    public T minItem(){
+        T minNum = listItems.get(0);
+        for (T it:
+                listItems) {
+            if (minNum.compareTo(it) > 0)
+                minNum = it;
+        }
+        return minNum;
+    }
+
 }
