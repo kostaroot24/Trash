@@ -7,7 +7,7 @@ public class MyList <T extends Comparable<T>>{
     private List<T> listItems;
 
     public MyList(){
-        listItems = new ArrayList<T>();
+        listItems = new ArrayList<>();
     }
 
     public void addToList(T item){

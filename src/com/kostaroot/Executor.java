@@ -1,5 +1,6 @@
 package com.kostaroot;
 
+import com.kostaroot.collections.Collect;
 import com.kostaroot.generics.MyList;
 
 import java.util.List;
@@ -8,7 +9,8 @@ public class Executor {
 
     public void run(){
         System.out.println("Hi man");
-        stringList();
+        //stringList();
+        runCollect();
 
     }
 
@@ -33,6 +35,16 @@ public class Executor {
         System.out.println("Max: "+numberMyList.maxItem());
         System.out.println("Min: "+numberMyList.minItem());
 
+
+    }
+
+    private void runCollect(){
+        //new Collect().randNumber(160000);
+        Collect collect = new Collect();
+        collect.printList();
+        collect.removeDivByNum(3);
+        System.out.println("After removing");
+        collect.printList();
 
     }
 
