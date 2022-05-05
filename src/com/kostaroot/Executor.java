@@ -1,6 +1,7 @@
 package com.kostaroot;
 
 import com.kostaroot.collections.Collect;
+import com.kostaroot.collections.LineReader;
 import com.kostaroot.generics.MyList;
 
 import java.util.List;
@@ -11,6 +12,7 @@ public class Executor {
         System.out.println("Hi man");
         //stringList();
         runCollect();
+        runLine();
 
     }
 
@@ -46,6 +48,10 @@ public class Executor {
         System.out.println("After removing");
         collect.printList();
 
+    }
+
+    private void runLine(){
+        LineReader lineReader = new LineReader();
     }
 
 }

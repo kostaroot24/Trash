@@ -31,7 +31,7 @@ public class Collect {
         List<Integer> numbers1 = new ArrayList<>(numbers);
         for (Integer number:numbers1) {
             if( number%div == 0 ) {
-                System.out.println("Number was deleted= "+numbers.indexOf(number));
+                //System.out.println("Number was deleted= "+numbers.indexOf(number));
                 numbers.remove(numbers.indexOf(number));
             }
         }
