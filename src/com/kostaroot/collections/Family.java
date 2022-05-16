@@ -71,6 +71,6 @@ public class Family implements Comparable<Family>{
 
     @Override
     public int compareTo(Family family) {
-        return 0;
+        return name.compareTo(family.getName());
     }
 }

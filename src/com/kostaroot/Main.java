@@ -3,6 +3,7 @@ package com.kostaroot;
 public class Main {
     public static void main( String args[] ){
         System.out.println("Hello future trash");
-        new Executor().run();
+        //new Executor().run();
+        new FamilyExecutor().run();
     }
 }
