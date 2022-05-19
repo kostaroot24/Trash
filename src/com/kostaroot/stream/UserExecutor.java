@@ -17,6 +17,7 @@ public class UserExecutor {
         printUserAgeLess50FromDnepr();
         System.out.println("AVG Age user from Kyiv: "+avgAgeFromCity("Kyiv"));
         System.out.println("Number user not from Kyiv: "+countPeopleNotFromCity("Sumy"));
+        printTop3YoungestUser();
     }
 
     private void usersCreated(){
@@ -62,5 +63,18 @@ public class UserExecutor {
                 stream().
                 filter(p->!(p.getCity().equals(city))).
                 count();
+    }
+
+    public void printTop3YoungestUser(){
+        Comparator<User> ageComp = new Comparator<User>() {
+            @Override
+            public int compare(User user, User t1) {
+                return Integer.compare(user.getAge(), t1.getAge());
+            }
+        };
+        users.stream().
+                sorted(ageComp).
+                limit(3).
+                forEach(System.out::println);
     }
 }
