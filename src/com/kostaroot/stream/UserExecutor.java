@@ -1,7 +1,6 @@
 package com.kostaroot.stream;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UserExecutor {
@@ -16,6 +15,8 @@ public class UserExecutor {
         System.out.println(users);
         printUserAgeOver40();
         printUserAgeLess50FromDnepr();
+        System.out.println("AVG Age user from Kyiv: "+avgAgeFromCity("Kyiv"));
+        System.out.println("Number user not from Kyiv: "+countPeopleNotFromCity("Sumy"));
     }
 
     private void usersCreated(){
@@ -24,7 +25,7 @@ public class UserExecutor {
         users.add(new User("Petia",23,"Dnepr"));
         users.add(new User("Helen",42,"Lutsk"));
         users.add(new User("Helen",92,"Chernigiv"));
-        users.add(new User("Sergey",5,"Kyiv"));
+        users.add(new User("Sergey",6,"Kyiv"));
         users.add(new User("Maryna",32,"Kyiv"));
         users.add(new User("Ivan",64,"Lviv"));
         users.add(new User("Kolia",25,"Kyiv"));
@@ -43,5 +44,23 @@ public class UserExecutor {
         users.stream().
                 filter(p->p.getAge()<50 && p.getCity().equals("Dnepr")).
                 forEach(System.out::println);
+    }
+
+    public double avgAgeFromCity(String city){
+        OptionalDouble avg =  users.
+                stream().
+                filter(p->p.getCity().equals(city)).
+                mapToInt(User::getAge).
+                average();
+        if(avg.isPresent())
+            return avg.getAsDouble();
+        return -1;
+    }
+
+    public long countPeopleNotFromCity(String city){
+        return users.
+                stream().
+                filter(p->!(p.getCity().equals(city))).
+                count();
     }
 }
